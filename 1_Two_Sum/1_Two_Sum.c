@@ -21,13 +21,13 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
     memset(table, 0, sizeof(table));
 
     for (unsigned int index = 0; index < numsSize; index++) {
-        int offset = target - nums[index];
+        int complement = target - nums[index];
         unsigned int hashvalue =
-            (unsigned int)offset * lucky_number % hashtable_size;
+            (unsigned int)complement * lucky_number % hashtable_size;
 
         // find matched hashvalue in table
         while (table[hashvalue].filled) {
-            if (table[hashvalue].value == offset &&
+            if (table[hashvalue].value == complement &&
                 table[hashvalue].index != index) {
                 result[0] = table[hashvalue].index;
                 result[1] = index;
